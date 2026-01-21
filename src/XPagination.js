@@ -32,6 +32,17 @@ const currentData = dataTable.slice(startIndex, endIndex);
 
 const totalPages = Math.ceil(dataTable.length / totalDataPerPage);
 
+const handlePrevious = () => {
+    if (currentPage > 1) {
+        setCurrentPage(currentPage - 1);
+    }
+};
+const handleNext = () => {
+    if (currentPage < totalPages) {
+        setCurrentPage(currentPage + 1);
+    }
+};
+
     return (
         <div>
             <div>
@@ -64,21 +75,21 @@ const totalPages = Math.ceil(dataTable.length / totalDataPerPage);
                 <div style={{ marginTop: "20px", 
                     textAlign: "center" }}>
                     <button
-                        onClick={() =>  setCurrentPage((prev) => (prev - 1))}  
+                        onClick={handlePrevious}  
                        // disabled={currentPage === 1}
                        style={{backgroundColor:"green"}}
                     >
-                        previous
+                        Previous
                     </button>
                     <span style={{ margin: "0 10px", backgroundColor:"green" }}>
                          {currentPage} 
                     </span>
                     <button
-                        onClick={() => setCurrentPage((prev) => (prev + 1))} 
+                        onClick={handleNext} 
                        // disabled={currentPage === totalPages}
                        style={{backgroundColor:"green"}}
                     >
-                        next
+                        Next
                     </button>
                 </div>
 
